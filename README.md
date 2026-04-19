@@ -1,4 +1,4 @@
-#Thoughtless Airheads Presents:  Anteater Chess (Version 1.0)
+# Thoughtless Airheads Presents:  Anteater Chess (Version 1.0)
 
 Authors:  Sanaa Bebal, Ava Chinn, Alonso De La Cruz Becerra, Estrella Distancia Zamora, Lauren Howe, David Lee, and Samuel Kim
 
