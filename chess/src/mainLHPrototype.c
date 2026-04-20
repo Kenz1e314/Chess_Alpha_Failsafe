@@ -193,7 +193,7 @@ int main(void){
         printf("Player 1 is playing with the black set.  Player 2 is playing with the white set.\n");
     } else{
         playerNum = 0;
-        printf("Going to default.  \nPlayer 1 is playing with the white set.  Player 2 is playing with the black set.\n");
+        printf("Going to default.  \nPlayer 1 is playing with the white set.  Player 2 is playing with the black set.\n\n");
     }
     helpMenu();
 
