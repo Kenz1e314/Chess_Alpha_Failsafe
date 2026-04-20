@@ -103,7 +103,7 @@ int switchTurn(int playerNum){
 }
 
 void applyMove(PIECE *piece[RANKS][FILES], MOVE m) {
-    PIECE *piece[m.pos1.x][m.pos1.y];
+    PIECE *piece = board[m.pos1.x][m.pos1.y];
     if(piece == NULL) {
         return;
     }
