@@ -34,19 +34,19 @@
 
 char pieceTypeToChar(int pieceTypeNum){
     if(pieceTypeNum == King){
-        return 'k';
+        return 'K';
     } else if(pieceTypeNum == Queen){
-        return 'q';
+        return 'Q';
     } else if(pieceTypeNum == Rook){
-        return 'r';
+        return 'R';
     } else if(pieceTypeNum == Ant){
         return 'a';
     } else if(pieceTypeNum == Anteater){
         return 'A';
     } else if(pieceTypeNum == Bishop){
-        return 'b';
+        return 'B';
     } else if(pieceTypeNum == Knight){
-        return 'n';
+        return 'N';
     } else{
         return 'z';
     }
