@@ -102,7 +102,7 @@ int switchTurn(int playerNum){
     return playerNum;
 }
 
-void applyMove(PIECE *piece[RANKS][FILES], MOVE m) {
+void applyMove(PIECE *board[RANKS][FILES], MOVE m) {
     PIECE *piece = board[m.pos1.x][m.pos1.y];
     if(piece == NULL) {
         return;
