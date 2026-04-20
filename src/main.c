@@ -7,7 +7,6 @@
 #include "user.h"
 #include "chess.h"
 //#include "logging.h"
-#include "chess.h"
 #include "gamestate.h"
 #include "computer.h"
 
