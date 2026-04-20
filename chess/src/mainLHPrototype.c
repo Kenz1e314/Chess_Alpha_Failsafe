@@ -183,8 +183,9 @@ int main(void){
     }
     
     // prompting player turn input 
+    printf("NOTE:  Right now, player vs. computer only works if the user picks the white piece, due to how computer moves work\n");
     printf("Please type in which set you (player 1) want to use \n(white or black) (default white):  ");
-    scanf(" %s", playerColor);
+    scanf(" %15s", playerColor);
     if(strcmp(playerColor, "white") == 0){
         playerNum = 0;
         printf("Player 1 is playing with the white set.  Player 2 is playing with the black set.\n");
