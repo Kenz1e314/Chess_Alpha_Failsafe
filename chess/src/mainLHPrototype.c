@@ -183,7 +183,7 @@ int main(void){
     }
     
     // prompting player turn input 
-    printf("Please type in which set you (player 1) want to use (white or black) (default white):  ");
+    printf("Please type in which set you (player 1) want to use \n(white or black) (default white):  ");
     scanf(" %s", playerColor);
     if(strcmp(playerColor, "white") == 0){
         playerNum = 0;
@@ -200,7 +200,7 @@ int main(void){
     // Game
     if(option == PVCOMP){
         int turnCount = 0;
-        while(turnCount < 20){
+        while(turnCount < 10){
             // Player 1's turn
             printBoard(board);
 
@@ -220,6 +220,7 @@ int main(void){
                 makeMove(0, 0, board, playerOneMoves);
             } else{ // comp move
                 makeMove(0, 1, board, playerOneMoves);
+                printf("Computer has made its move.\n");
             }
             
 
@@ -237,9 +238,10 @@ int main(void){
             }
             #endif
             // Player move
-            if(playerNum == 0){ // player move
+            if(playerNum == 0){ // comp move
                 makeMove(1, 1, board, playerTwoMoves);
-            } else{ // comp move
+                printf("Computer has made its move.\n");
+            } else{ // player move
                 makeMove(1, 0, board, playerTwoMoves);
             }
             
