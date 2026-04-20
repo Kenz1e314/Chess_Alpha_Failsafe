@@ -106,6 +106,16 @@ int switchTurn(int playerNum){
     return playerNum;
 }
 
+void applyMove(PIECE *piece[RANKS][FILES], MOVE m) {
+    PIECE *piece[m.pos1.x][m.pos1.x];
+    if(piece == NULL) {
+        return;
+    }
+    board[m.pos2.x][m.pos2.y] = piece;
+    board[m.pos1.x][m.pos1.y] = NULL;
+    setPos(piece, m.pos2.x, m.pos2.y);
+}
+
 int main(void){
     int option = 0;
     PIECE *board[RANKS][FILES];
