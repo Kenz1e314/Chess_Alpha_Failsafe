@@ -29,10 +29,7 @@
 
 #include "chess.h"
 #include "user.h"
-
-#ifdef TESTING
 #include "moves.h"
-#endif
 
 // prints main menu (should this be in main.c itself)
 void printMenu(void){
