@@ -145,7 +145,7 @@ int main(void){
             if (playerNum == White) {
                 MOVE userMove;
 
-                printf("Enter move as: x1 x2 y1 y2: \n");
+                printf("Enter move as: x1 y1 x2 y2: \n");
                 scanf("%d %d %d %d", &userMove.pos1.x, &userMove.pos1.y, &userMove.pos2.x, &userMove.pos2.y);
                 applyMove(board, userMove);
             } else {
