@@ -28,6 +28,7 @@ Alpha Version Notes (Failsafe Version):
    * Computer handles 10 basic moves that should be legal before the program terminates (player vs. computer)
    * For player vs. player, game continues indefinitely (check/checkmate/stalemate don't work), and game assumes all moves are legal
    * To see intended alpha version (with some compilation errors), go to https://github.com/davijl18-oss/Chess-Project/tree/main
+   * Documentation (user manual and software specification) still reflect the goals for the fully working versions
 **********************************************************
 Copyright
 
