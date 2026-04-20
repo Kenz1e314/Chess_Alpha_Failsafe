@@ -6,6 +6,8 @@
 
 all:  bin/chess
 
+LH_TEST:  bin/LH_TEST
+
 bin/chess:  main.o chess.o gamestate.o moves.o computer.o user.o
 	gcc -std=c11 -Wall main.o chess.o gamestate.o moves.o computer.o user.o -o bin/chess
 
@@ -26,6 +28,13 @@ computer.o:  ./src/computer.c ./src/computer.h ./src/chess.h ./src/gamestate.h .
 
 user.o:  ./src/user.c ./src/user.h ./src/chess.h ./src/gamestate.h ./src/moves.h ./src/stubfunctions.h ./src/computer.h
 	gcc -c -std=c11 -Wall ./src/user.c -o user.o
+
+
+bin/LH_TEST:  mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o
+	gcc -std=c11 -Wall mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o -o bin/chess
+
+mainLHPrototype.o:  ./src/mainLHPrototype.c ./src/chess.h ./src/gamestate.h ./src/moves.h ./src/computer.h ./src/user.h ./src/stubfunctions.h
+	gcc -c -std=c11 -Wall ./src/mainLHPrototype.c -o mainLHPrototype.o
 
 
 
