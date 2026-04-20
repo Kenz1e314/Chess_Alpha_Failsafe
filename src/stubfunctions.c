@@ -16,6 +16,7 @@
 #include "moves.h"
 
 
+/* gamestate.c calls */
 int legalMove(MOVE *playerMove, PIECE *board[RANKS][FILES], int playerNum, MOVELIST *logMoveList){
         return 1;
 }
@@ -41,4 +42,15 @@ void deleteMoveList(MOVELIST *piecePossibleMoves){
 int logMove(MOVE *m){
         printf("Logging move.\n");
         return 1;
+}
+
+/* gamestate.c functions */
+int inCheck(void){
+  return 0;
+}
+int staleMate(void){
+ return 0;
+}
+int checkMate(void){
+ return 0;
 }
