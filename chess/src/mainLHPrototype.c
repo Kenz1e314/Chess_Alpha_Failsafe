@@ -31,7 +31,7 @@ void Menu(){              //check user.c
   printf("------------------------------------\n");
   printf("Please select which game mode to play:\n");
   printf("1. Computer vs. Player\n");
-  printf("2. Player vs. Player (coming soon)\n");
+  printf("2. Player vs. Player\n");
   printf("3.Exit\n");
 }
 
