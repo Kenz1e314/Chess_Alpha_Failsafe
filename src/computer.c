@@ -30,6 +30,7 @@ MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
                     m.pos1.y = y;
                     m.pos2.x = x;
                     m.pos2.y = y-1;
+                    return m;
                 }
             }
         }
