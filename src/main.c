@@ -26,11 +26,6 @@ static PIECE allPieces[40];
 static int nextPieceIndex = 0;
 
 
-// lists keeping track of moves made by player 1 and player 2
-static MOVELIST *playerOneMoves; // essentially white's moves
-static MOVELIST *playerTwoMoves; // essentially black's moves
-
-
 // placing pieces on the board
 PIECE *placePiece(PIECE *board[RANKS][FILES],
                   PIECETYPE type,
