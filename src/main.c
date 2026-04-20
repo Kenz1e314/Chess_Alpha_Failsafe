@@ -9,6 +9,7 @@
 //#include "logging.h"
 #include "gamestate.h"
 #include "computer.h"
+#include "moves.h"
 
 void Menu(){              //check user.c
   printf("Welcome to Anteater Chess!\n");
