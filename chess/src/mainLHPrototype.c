@@ -188,7 +188,7 @@ int main(void){
     if(strcmp(playerColor, "white") == 0){
         playerNum = 0;
         printf("Player 1 is playing with the white set.  Player 2 is playing with the black set.\n");
-    } else if(strcmp(playerColor, "white") == 0){
+    } else if(strcmp(playerColor, "black") == 0){
         playerNum = 1;
         printf("Player 1 is playing with the black set.  Player 2 is playing with the white set.\n");
     } else{
