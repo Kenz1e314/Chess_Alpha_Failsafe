@@ -1,8 +1,8 @@
 /* computer.c */
 
 #include <stdio.h>
-#include computer.h
-#include moves.h
+#include "computer.h"
+#include "moves.h"
 
 MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
     int x, y;
