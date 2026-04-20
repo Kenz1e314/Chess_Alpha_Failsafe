@@ -150,7 +150,7 @@ int main(void){
                 applyMove(board, userMove);
             } else {
                 MOVE compMove = computerMove(board, playerNum);
-                if (compMove.pos1.x != -1 || compMove.pos1.y != -1 || compMove.pos2.x != -1 || compMove.pos2.y != -1) {
+                if (compMove.pos1.x == -1 || compMove.pos1.y == -1 || compMove.pos2.x == -1 || compMove.pos2.y == -1) {
                     printf("Computer has no more moves, ending game\n");
                     break;
                 }
