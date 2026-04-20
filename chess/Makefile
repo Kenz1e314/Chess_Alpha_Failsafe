@@ -8,8 +8,8 @@ all:  bin/chess
 
 LH_TEST:  bin/LH_TEST
 
-bin/chess:  main.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o
-	gcc -std=c11 -Wall main.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o -o bin/chess
+bin/chess:  mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o
+	gcc -std=c11 -Wall mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o -o bin/chess
 
 main.o:  ./src/main.c ./src/chess.h ./src/gamestate.h ./src/moves.h ./src/computer.h ./src/user.h ./src/stubfunctions.h
 	gcc -c -std=c11 -Wall ./src/main.c -o main.o
