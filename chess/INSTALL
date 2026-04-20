@@ -1,0 +1,34 @@
+1.  System requirements
+The user must satisfy the following conditions to correctly install the software:
+* The user must have enough storage space on their computer to download the program
+* The user must be able to access and use the command line to start the program
+* The user must have RHEL8 64-bit Linux
+
+
+2.  Setup and Configuration
+Download the package from the main directory of this website, or access it from the UCI's servers (for grading purposes only).  Using the command line, go into the installed folder.
+
+For the binary package Chess_Alpha.tar.gz, run the executable program on the command line as follows:
+% gtar xvzf Chess_V1.0.tar.gz (extract contents into current directory)
+% evince chess/doc/chess.pdf (for reading documentation, if desired)
+% chess/bin/chess (run executable file)
+
+For Chess_Alpha_src.tar.gz:
+* Extract the Source Package
+  * gtar xvzf Chess_Alpha_src.tar.gz
+* Build the Software
+  * cd chess
+  * make
+* Run the Executable
+  * cd ./bin
+  * ./chess
+* Remove compiled object files
+  * cd ..
+  * make clean
+
+
+3.  Uninstalling
+Through the command line, the user can uninstall the program by calling make clean (see above), 
+then going one directory above the installed directory and calling rmdir -rf ChessDirectoryName, 
+with ChessDirectoryName being the name of the directory that was downloaded by the user 
+(the user may have decided to rename the directory, so be sure to check its current name).
