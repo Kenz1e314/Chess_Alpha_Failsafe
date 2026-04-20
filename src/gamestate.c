@@ -32,6 +32,8 @@
 #include "moves.h"
 #include "gamestate.h"
 #include "user.h"
+#include "computer.h"
+#include "stubfunctions.h"
 
 
 void makeMove(int playerNum, int isComputer, PIECE *board[RANKS][FILES], MOVELIST *logMoveList){
