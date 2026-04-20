@@ -7,9 +7,9 @@
 #include "user.h"
 #include "chess.h"
 //#include "logging.h"
-#include "chess.h"
 #include "gamestate.h"
 #include "computer.h"
+#include "moves.h"
 
 void Menu(){              //check user.c
   printf("Welcome to Anteater Chess!\n");
@@ -24,11 +24,6 @@ void Menu(){              //check user.c
 // 40 pieces total on the board
 static PIECE allPieces[40];
 static int nextPieceIndex = 0;
-
-
-// lists keeping track of moves made by player 1 and player 2
-static MOVELIST *playerOneMoves; // essentially white's moves
-static MOVELIST *playerTwoMoves; // essentially black's moves
 
 
 // placing pieces on the board
@@ -95,46 +90,6 @@ void Board(PIECE *board[RANKS][FILES])
   
 }
 
-
-// needs to reset the gameboard, movelist, reset player to 0 (White)
-void resetGame(PIECE *board[RANKS][FILES], int *playerNum){
-    // reached the end of the game or exiting out prematurely
-    printf("Exiting the program.\n");
-    // resetting the player to 0 - White
-    if (playerNum != NULL){
-        *playerNum = 0;
-    }
-    
-    // resetting also the nextPieceIndex for later creating pieces
-    nextPieceIndex = 0;
-
-    #ifdef IGNORE
-    // removing entries of the moves made by the players
-    // using removeLastEntry
-    while (playerOneMoves -> count > 0){
-        //entry = playerOneMoves -> size - 1; // index of the last entry
-        removeLastEntry(playerOneMoves, entry);
-    }
-    while(playerTwoMoves -> count > 0){
-        //entry = playerTwoMoves -> size - 1; // index of the last entry
-        removeLastEntry(playerTwoMoves, entry);
-    }
-    #endif
-    
-    // just calling board again in case to reset the board state back to the initial state
-    Board(board);
-
-    // if need to clear out allPieces
-    /*
-    for (int i = 0; i < 40; i++)
-    {
-        allPieces[i] = NULL;
-    }
-    */
-
-}
-
-
 int switchTurn(int playerNum){
     // switching white to black
     if (playerNum == 0){
@@ -147,32 +102,58 @@ int switchTurn(int playerNum){
     return playerNum;
 }
 
-
+void applyMove(PIECE *piece[RANKS][FILES], MOVE m) {
+    PIECE *piece[m.pos1.x][m.pos1.x];
+    if(piece == NULL) {
+        return;
+    }
+    board[m.pos2.x][m.pos2.y] = piece;
+    board[m.pos1.x][m.pos1.y] = NULL;
+    setPos(piece, m.pos2.x, m.pos2.y);
+}
 
 int main(void){
     int option = 0;
-    int count = 0;
-    const int PVCOMP = 1;
-    const int PVP = 2;
-    const int EXIT = 3;
+    PIECE *board[RANKS][FILES];
+    int playerNum = White;
 
-    // Main menu prompt
-    do{
-        if(count > 0){
-            printf("Invalid input.  Please try again.\n");
+    while (1) {
+        do {
+            Menu();
+            scanf("%d%*c", &option);
+            if (option != 1 && option != 3) {
+                printf("\nInvalid option, please choose again");
+            }
+        } while(option != 1 && option != 3);
+        if (option == 3) {
+            printf("Exiting...");
+            return 0;
         }
-      Menu();
-      scanf(" %d", &option);
-    } while(option != 1 && option != 2 && option != 3);
-
-    if(option == 3){
-        exit(0);
-    }
-    // Game
-    while(1){
         
-      
-    }
 
-  
-  }
+        // option 1
+        Board(board);
+        playerNum = White;
+        while(1) {
+            printBoard(board);
+
+            if (playerNum == White) {
+                MOVE userMove;
+
+                printf("Enter move as: x1 y1 x2 y2: \n");
+                scanf("%d %d %d %d", &userMove.pos1.x, &userMove.pos1.y, &userMove.pos2.x, &userMove.pos2.y);
+                applyMove(board, userMove);
+            } else {
+                MOVE compMove = computerMove(board, playerNum);
+                if (compMove.pos1.x == -1 || compMove.pos1.y == -1 || compMove.pos2.x == -1 || compMove.pos2.y == -1) {
+                    printf("Computer has no more moves, ending game\n");
+                    break;
+                }
+                applyMove(board, compMove);
+            }
+            playerNum = switchTurn(playerNum);
+        }
+    }
+    return 0;
+}
+    
