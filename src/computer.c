@@ -15,9 +15,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "computer.h"
-#include "rules.h"
+#include "moves.h"
+#include "stubfunctions.h"
 
-/* Returns move calculated by computer */ 
+
 
 
 // Returns the value of each piece in centipawns 
@@ -304,7 +305,7 @@ static MOVE *copyMove(MOVE *m) {
 }
 
 
-
+/* Returns move calculated by computer */ 
 MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
         int x, y;
         int bestscore = -1000000000;
@@ -338,10 +339,7 @@ MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
                                         continue;
                                 }
 
-                                if(!legalMove(m, board, moves, playerNum)) {
-                                        continue;
-                                }
-
+                                
                                 PIECE *tempBoard[RANKS][FILES];
 
                                 copyBoard(board, tempBoard);
