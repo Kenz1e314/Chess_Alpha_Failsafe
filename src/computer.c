@@ -4,7 +4,7 @@
 /* Author(s):  Ava Chinn */
 /* Editor(s): Alonso De La Cruz*/
 /*Decription: Added EndGame function for king and implemented it in getPieceSquareValue 
-              by adding if statement, and removed extra row for KingMidTable/*
+              by adding if statement, and removed extra row for KingMidTable */
 /* History:  
         * 4/16/2026:  1st draft -Ava
         *4/16/2026:   2nd draft -Alonso
