@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include computer.h
-#include stubfunctions.h
+#include moves.h
 
 MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
     int x, y;
