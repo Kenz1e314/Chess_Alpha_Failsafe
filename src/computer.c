@@ -17,19 +17,19 @@ MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
         return m;
     }
 
-    for (y = RANKS-1; y >= 0; y--) {
-        for (x = 0; x < FILES; x++) {
+    for (x = RANKS-1; x >= 0; x--) {
+        for (y = 0; y < FILES; y++) {
             PIECE *piece = board[x][y];
             if (piece == NULL) {
                 continue;
             }
 
             if (getPieceColor(piece) == Black && getPieceType(piece) == Ant) {
-                if (y-1 >= 0 && board[x][y-1] == NULL) {
+                if (x-1 >= 0 && board[x-1][y] == NULL) {
                     m.pos1.x = x;
                     m.pos1.y = y;
-                    m.pos2.x = x;
-                    m.pos2.y = y-1;
+                    m.pos2.x = x-1;
+                    m.pos2.y = y;
                     return m;
                 }
             }
