@@ -22,11 +22,12 @@ Other Notes for the User:
 * To see the overview of the program's modules and functions, please refer to Chess_SoftwareSpec.pdf 
 
 **********************************************************
-Alpha Version Notes:
-* Some features are not implented right now.  These include:
-    * GUI (as opposed to text interface)
-    * Undo move option
-    * "Special" moves that require more user input (i.e. pawn promotion and anteating)
+Alpha Version Notes (Failsafe Version):
+* A lot of features are not implented right now.  Right now, the main features that do work are:
+   * Main menu (Player vs. computer and Player vs. player)
+   * Computer handles 10 basic moves that should be legal before the program terminates (player vs. computer)
+   * For player vs. player, game continues indefinitely (check/checkmate/stalemate don't work), and game assumes all moves are legal
+   * To see intended alpha version (with some compilation errors), go to https://github.com/davijl18-oss/Chess-Project/tree/main
 **********************************************************
 Copyright
 
