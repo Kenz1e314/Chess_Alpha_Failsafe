@@ -1,7 +1,8 @@
-/* main.c */
+/* main.c asdf */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 #include "user.h"
@@ -161,7 +162,7 @@ int main(void){
     const int PVCOMP = 1;
     const int PVP = 2;
     const int EXIT = 3;
-    char *playerColor;
+    char playerColor[40] = "Hello!";
     int playerNum = 0;
 
     // restarting game
@@ -177,7 +178,7 @@ int main(void){
     } while(option != 1 && option != 2 && option != 3);
 
     // Quit
-    if(option == 3){
+    if(option == EXIT){
         exit(0);
     }
     
@@ -194,6 +195,7 @@ int main(void){
         playerNum = 0;
         printf("Going to default.  \nPlayer 1 is playing with the white set.  Player 2 is playing with the black set.\n");
     }
+    helpMenu();
 
     // Game
     if(option == PVCOMP){
@@ -201,6 +203,8 @@ int main(void){
         while(turnCount < 20){
             // Player 1's turn
             printBoard(board);
+
+            #ifdef IGNORE
             if(inCheck()){
                 printf("Player 1 is in check!\n");
             } else if(staleMate()){
@@ -210,6 +214,7 @@ int main(void){
                 endGame(1, 0);
                 main();
             }
+            #endif
             // Player move
             if(playerNum == 0){ // player move
                 makeMove(0, 0, board, playerOneMoves);
@@ -220,13 +225,17 @@ int main(void){
 
             // Player 2's turn
             printBoard(board);
+            #ifdef IGNORE
             if(inCheck()){
                 printf("Player 1 is in check!\n");
             } else if(staleMate()){
                 endGame(0, 1);
+                main();
             } else if(checkMate()){
-                endGame(2, 0);
+                endGame(1, 0);
+                main();
             }
+            #endif
             // Player move
             if(playerNum == 0){ // player move
                 makeMove(1, 1, board, playerTwoMoves);
@@ -244,6 +253,7 @@ int main(void){
         while(1){
             // Player 1's turn
             printBoard(board);
+            #ifdef IGNORE
             if(inCheck()){
                 printf("Player 1 is in check!\n");
             } else if(staleMate()){
@@ -253,21 +263,25 @@ int main(void){
                 endGame(1, 0);
                 main();
             }
+            #endif
             // Player move
             makeMove(0, 0, board, playerOneMoves);
             
 
             // Player 2's turn
             printBoard(board);
+            #ifdef IGNORE
             if(inCheck()){
                 printf("Player 1 is in check!\n");
             } else if(staleMate()){
                 endGame(0, 1);
+                main();
             } else if(checkMate()){
-                endGame(2, 0);
+                endGame(1, 0);
+                main();
             }
-            // Player move
-            makeMove(1, 0, board, playerTwoMoves);
+            #endif
+            makeMove(1, 0, board, playerOneMoves);
         }
 
     }

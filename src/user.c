@@ -1,4 +1,4 @@
-/* Chess.c : 
+/* Chess.c asdf : 
 *  Author: Sanaa Bebal & Lauren Howe
 *  Modifications: 
 *  04/14/2026 SB initial modifications
@@ -30,6 +30,27 @@
 #include "chess.h"
 #include "user.h"
 #include "moves.h"
+
+
+char pieceTypeToChar(int pieceTypeNum){
+    if(pieceTypeNum == King){
+        return 'k';
+    } else if(pieceTypeNum == Queen){
+        return 'q';
+    } else if(pieceTypeNum == Rook){
+        return 'r';
+    } else if(pieceTypeNum == Ant){
+        return 'a';
+    } else if(pieceTypeNum == Anteater){
+        return 'A';
+    } else if(pieceTypeNum == Bishop){
+        return 'b';
+    } else if(pieceTypeNum == Knight){
+        return 'n';
+    } else{
+        return 'z';
+    }
+}
 
 // prints main menu (should this be in main.c itself)
 void printMenu(void){
@@ -67,7 +88,8 @@ void printBoard(PIECE *board[RANKS][FILES]){
     */
 
 
-    // iterating through the 2D list to print out pieces 
+    // iterating through the 2D list to print out pieces
+    char color = 'z'; 
     for (int i = RANKS - 1; i >= 0; i--) {
         printf("  +----+----+----+----+----+----+----+----+----+----+\n");
         printf("%d", i + 1);
@@ -79,7 +101,12 @@ void printBoard(PIECE *board[RANKS][FILES]){
             }
             else {
                 char c = pieceTypeToChar(getPieceType(board[i][j]));
-                printf("| %c  ", c);
+                if(board[i][j]->PieceColor == White){
+                    color = 'w';
+                } else if(board[i][j]->PieceColor == Black){
+                    color = 'b';
+                }
+                printf("|%c%c  ", color, c);
             }
         }
         printf("|\n");

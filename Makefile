@@ -1,4 +1,4 @@
-# Makefile
+# Makefile asdf
 # Author(s):
 # History:
 #   * 4/19/2026 Created first draft of Makefile
@@ -8,8 +8,8 @@ all:  bin/chess
 
 LH_TEST:  bin/LH_TEST
 
-bin/chess:  main.o chess.o gamestate.o moves.o computer.o user.o
-	gcc -std=c11 -Wall main.o chess.o gamestate.o moves.o computer.o user.o -o bin/chess
+bin/chess:  main.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o
+	gcc -std=c11 -Wall main.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o -o bin/chess
 
 main.o:  ./src/main.c ./src/chess.h ./src/gamestate.h ./src/moves.h ./src/computer.h ./src/user.h ./src/stubfunctions.h
 	gcc -c -std=c11 -Wall ./src/main.c -o main.o
@@ -30,12 +30,14 @@ user.o:  ./src/user.c ./src/user.h ./src/chess.h ./src/gamestate.h ./src/moves.h
 	gcc -c -std=c11 -Wall ./src/user.c -o user.o
 
 
-bin/LH_TEST:  mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o
-	gcc -std=c11 -Wall mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o -o bin/LH_TEST
+bin/LH_TEST:  mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o
+	gcc -std=c11 -Wall mainLHPrototype.o chess.o gamestate.o moves.o computer.o user.o stubfunctions.o -o bin/LH_TEST
 
 mainLHPrototype.o:  ./src/mainLHPrototype.c ./src/chess.h ./src/gamestate.h ./src/moves.h ./src/computer.h ./src/user.h ./src/stubfunctions.h
 	gcc -c -std=c11 -Wall ./src/mainLHPrototype.c -o mainLHPrototype.o
 
+stubfunctions.o:  ./src/stubfunctions.c ./src/stubfunctions.h ./src/chess.h ./src/moves.h
+	gcc -c -std=c11 -Wall ./src/stubfunctions.c -o stubfunctions.o
 
 
 
