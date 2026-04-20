@@ -1,4 +1,4 @@
-/* gameState.c
+/* gameState.c */
 /* Description:  */
 /* Author(s):  Sanaa Bebal & Lauren Howe
    Modifications:

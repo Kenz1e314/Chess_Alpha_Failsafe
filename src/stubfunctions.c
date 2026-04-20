@@ -14,6 +14,7 @@
 
 #include "chess.h"
 #include "moves.h"
+#include "stubfunctions.h"
 
 
 /* gamestate.c calls */
