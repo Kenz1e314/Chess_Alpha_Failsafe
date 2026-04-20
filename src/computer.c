@@ -211,6 +211,7 @@ static int getPieceSquareValue(PIECE *piece, PIECE *board[RANKS][FILES]) {
                             return tableLookup(kingMidTable, piece);
                         }
         }
+        return 0;
 }
 
 
@@ -294,15 +295,15 @@ static void moveOnTempBoard(MOVE *move, PIECE *board[RANKS][FILES]) {
         setPos(piece, move->pos2.y, move->pos2.x);
 }
 
-/* Creates new move and copies another move into it */
-static MOVE *copyMove(MOVE *m) {
-        MOVE *newMove = malloc(sizeof(MOVE));
-        if (newMove == NULL) {
-                return NULL;
-        }
-        *newMove = *m;
-        return newMove;
-}
+// /* Creates new move and copies another move into it */
+// static MOVE *copyMove(MOVE *m) {
+//         MOVE *newMove = malloc(sizeof(MOVE));
+//         if (newMove == NULL) {
+//                 return NULL;
+//         }
+//         *newMove = *m;
+//         return newMove;
+// }
 
 
 /* Returns move calculated by computer */ 
