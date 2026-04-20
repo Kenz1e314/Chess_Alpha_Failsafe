@@ -19,13 +19,13 @@ MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
 
     for (y = RANKS-1; y >= 0; y--) {
         for (x = 0; x < FILES; x++) {
-            PIECE *piece = board[y][x];
+            PIECE *piece = board[x][y];
             if (piece == NULL) {
                 continue;
             }
 
             if (getPieceColor(piece) == Black && getPieceType(piece) == Ant) {
-                if (y-1 >= 0 && board[y-1][x] == NULL) {
+                if (y-1 >= 0 && board[x][y-1] == NULL) {
                     m.pos1.x = x;
                     m.pos1.y = y;
                     m.pos2.x = x;
