@@ -346,7 +346,7 @@ MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
                                 moveOnTempBoard(m, tempBoard);
 
                                 int score = evalBoard(tempBoard, playerNum);
-                                free(tempBoard);
+                                freeBoard(tempBoard);
 
                                 if (score > bestscore) {
                                         bestscore = score;
