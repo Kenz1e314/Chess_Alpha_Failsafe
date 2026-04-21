@@ -51,7 +51,7 @@ PIECE *placePiece(PIECE *board[RANKS][FILES],
     // setting the pieces, type, color, positioning on the board
     setPiece(p, type, color, x, y);
     // actually placing the piece upon the board
-    board[x][y] = p;
+    board[y][x] = p;
     return p;
 }
 
@@ -168,6 +168,9 @@ int main(void){
     // restarting game
     resetGame(board, &playerNum);
 
+    playerOneMoves = createMoveList();
+    playerTwoMoves = createMoveList();
+        
     // Main menu prompt
     do{
         if(count > 0){
