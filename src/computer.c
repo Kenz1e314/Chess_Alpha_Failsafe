@@ -286,12 +286,12 @@ static void moveOnTempBoard(MOVE *move, PIECE *board[RANKS][FILES]) {
         if (piece == NULL) {
                 return;
         }
-        if (piece != NULL) {
-                free(board[move->pos2.x][move->pos2.y]);
+        if (board[move->pos2.y][move->pos2.x] != NULL) {
+                free(board[move->pos2.y][move->pos2.x]);
         }
 
-        board[move->pos2.x][move->pos2.y] = piece;
-        board[move->pos1.x][move->pos1.y] = NULL;
+        board[move->pos2.y][move->pos2.x] = piece;
+        board[move->pos1.y][move->pos1.x] = NULL;
         setPos(piece, move->pos2.x, move->pos2.y);
 }
 
