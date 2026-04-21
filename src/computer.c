@@ -281,17 +281,17 @@ static void freeBoard(PIECE *board[RANKS][FILES]) {
 
 /* Simulates moves on the board copy */
 static void moveOnTempBoard(MOVE *move, PIECE *board[RANKS][FILES]) {
-        PIECE *piece = board[move->pos1.y][move->pos1.x];
+        PIECE *piece = board[move->pos1.x][move->pos1.y];
 
         if (piece == NULL) {
                 return;
         }
-        if (board[move->pos2.y][move->pos2.x] != NULL) {
-                free(board[move->pos2.y][move->pos2.x]);
+        if (board[move->pos2.x][move->pos2.y] != NULL) {
+                free(board[move->pos2.x][move->pos2.y]);
         }
 
-        board[move->pos2.y][move->pos2.x] = piece;
-        board[move->pos1.y][move->pos1.x] = NULL;
+        board[move->pos2.x][move->pos2.y] = piece;
+        board[move->pos1.x][move->pos1.y] = NULL;
         setPos(piece, move->pos2.x, move->pos2.y);
 }
 
@@ -356,8 +356,10 @@ MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
                                         foundMove = 1;
                                 } 
                         }
+                        deleteMoveList(moves);
                 }
         }
+        
         if (!foundMove) {
                 bestMove.pos1.x = -1;
                 bestMove.pos1.y = -1;
