@@ -231,7 +231,7 @@ static int evalBoard(PIECE *board[RANKS][FILES], int playerNum) {
 
         for (y = RANKS - 1; y >= 0; y--) {
                 for (x = 0; x < FILES; x++) {
-                        PIECE *piece = board[x][y];
+                        PIECE *piece = board[y][x];
                         if (piece == NULL) {
                                 continue;
                         }
@@ -287,12 +287,12 @@ static void moveOnTempBoard(MOVE *move, PIECE *board[RANKS][FILES]) {
                 return;
         }
         if (piece != NULL) {
-                free(board[move->pos2.y][move->pos2.x]);
+                free(board[move->pos2.x][move->pos2.y]);
         }
 
         board[move->pos2.y][move->pos2.x] = piece;
         board[move->pos1.y][move->pos1.x] = NULL;
-        setPos(piece, move->pos2.y, move->pos2.x);
+        setPos(piece, move->pos2.x, move->pos2.y);
 }
 
 // /* Creates new move and copies another move into it */
