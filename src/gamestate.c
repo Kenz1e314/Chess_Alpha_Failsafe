@@ -68,6 +68,11 @@ void makeMove(int playerNum, int isComputer, PIECE *board[RANKS][FILES], MOVELIS
                 //#ifndef TESTING
                 playerMove = computerMove(board, playerNum);
                 //#endif
+                if (playerMove.pos1.x < 0 || playerMove.pos1.y < 0 || playerMove.pos2.x < 0 || playerMove.pos2.y < 0 ||
+                        playerMove.pos1.x >= RANKS || playerMove.pos1.y >= FILES || playerMove.pos2.x >= RANKS || playerMove.pos2.y >= FILES) {
+                        printf("Computer has no valid move.\n");
+                        return;
+                }
         }
         
         #ifdef TESTING
