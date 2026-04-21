@@ -310,12 +310,13 @@ static void moveOnTempBoard(MOVE *move, PIECE *board[RANKS][FILES]) {
 MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
         int x, y;
         int bestscore = -1000000000;
+        int foundMove = 0;
         
         MOVE bestMove;
-        bestMove.pos1.x = -1;
-        bestMove.pos1.y = -1;
-        bestMove.pos2.x = -1;
-        bestMove.pos2.y = -1;
+        // bestMove.pos1.x = -1;
+        // bestMove.pos1.y = -1;
+        // bestMove.pos2.x = -1;
+        // bestMove.pos2.y = -1;
   
         for (y = RANKS - 1; y >= 0; y--) {
                 for (x = 0; x < FILES; x++) {
@@ -349,12 +350,19 @@ MOVE computerMove(PIECE *board[RANKS][FILES], int playerNum) {
                                 int score = evalBoard(tempBoard, playerNum);
                                 freeBoard(tempBoard);
 
-                                if (score > bestscore) {
+                                if (!foundMove || score > bestscore) {
                                         bestscore = score;
                                         bestMove = *m;
+                                        foundMove = 1;
                                 } 
                         }
                 }
         }
+        if (!foundMove) {
+                bestMove.pos1.x = -1;
+                bestMove.pos1.y = -1;
+                bestMove.pos2.x = -1;
+                bestMove.pos2.y = -1;
+        }        
         return bestMove;
 }
