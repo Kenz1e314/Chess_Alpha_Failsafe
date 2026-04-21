@@ -51,7 +51,7 @@ PIECE *placePiece(PIECE *board[RANKS][FILES],
     // setting the pieces, type, color, positioning on the board
     setPiece(p, type, color, x, y);
     // actually placing the piece upon the board
-    board[y][x] = p;
+    board[x][y] = p;
     return p;
 }
 
